@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lite Vue</title>
+</head>
+<body>
+    <script type="module">
+        import {createApp} from "./src/lite-vue.js"
+        const app = createApp({
+            open: true,
+            msg: "show meee !!",
+            color: "red",
+            changeColor(newColor){
+                this.color = newColor;
+            }
+        });
+        app.mount("#app");
+    </script>
+    <div id="app">
+        <div v-if="open">{{msg}} deneme seçili renk {{color}}</div>
+        <div :style="'color:' + color" @click="changeColor('red')">Red</div>
+        <div :style="'color:' + color" @click="changeColor('blue')">Blue</div>
+        <button @click="open = !open">Toggle</button>
+        <div v-text="msg"></div>
+        <input type ="text" v-model="msg" />
+    </div>
+</body>
+</html>
