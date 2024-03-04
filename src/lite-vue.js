@@ -38,7 +38,7 @@ function process(node, ctx){
                 lastIndex = match.index + match[0].length;
             };
             if(lastIndex < data.length - 1){
-                segments.psuh(JSON.stringify(data.slice(lastIndex)))
+                segments.push(JSON.stringify(data.slice(lastIndex)))
             }
             
             text(node, ctx, segments.join("+"))
